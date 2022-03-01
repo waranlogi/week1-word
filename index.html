@@ -1,0 +1,23 @@
+<script>
+Words= () => {
+    let paragraph = "Travelling has changed significantly thanks to technology. In the earlier days, it was not easy to travel. Travelling on foot or on animals was the only option back then. Ships were also an option but they were too risky.Further, people use bullocks and horse carts and even camels to travel. Sled was an option for people travelling to snow-covered regions. Moreover, it was a hassle to travel even to a short distance as it consumed too much time.However, with the changing times and revolutionary technology, travelling has become one of the easiest things to do. There are so many new ways and means to travel that the travel game has changed drastically.We can board a variety of vehicles now to travel such as bus, train, truck, aeroplane, submarine, hovercraft, and more. You can reach a place far away within no time thanks to all these transport options.Further, there are no barriers now. You can use online maps and translators when travelling to a different city or country to help you. Cab service and food service is readily available too. Thus, travelling is very easy now thanks to technology.";
+    paragraph = paragraph.replace(/[, . ]/g, ' ');
+    paragraph=paragraph.toLowerCase();
+    const wordFrequency = paragraph.split(" ");
+    const wordCount = {};
+   const words=paragraph.match(/(\w+)/g).length;
+   console.log(words);
+    wordFrequency.forEach((item) => {
+      if (wordCount[item] == null) wordCount[item] = 1;
+      else {
+        wordCount[item] += 1;
+      }
+      if (item === '') wordCount[item] = 0;
+    });
+    let Frequency = Object.entries(wordCount).sort(function (a, b) { return b[0] - a[0] });
+  
+    const Obj = Object.fromEntries(Frequency);
+    return Obj;
+  }
+  console.log(Words());
+</script>
